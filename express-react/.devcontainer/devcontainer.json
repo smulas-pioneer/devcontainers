@@ -1,0 +1,21 @@
+{
+    "forwardPorts": [3069],
+    "portsAttributes": {
+        "3069": {
+            "visibility": "public",
+            "label": "api",
+            "onAutoForward": "notify"
+        }
+    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "runServices": ["api"],
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}

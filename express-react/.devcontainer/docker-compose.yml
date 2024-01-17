@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  devcontainer:
+    container_name: ${PROJECT_NAME}-dev
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: ${IMAGE_NAME}_img     
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ../:/workspace:cached      
+    command: sleep infinity
+  api:
+    container_name:  ${PROJECT_NAME}-api 
+    image: ${IMAGE_NAME}_img     
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ../api/:/api:cached      
+    command: npx ts-node server.ts
+    working_dir: /api
